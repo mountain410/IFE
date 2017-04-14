@@ -55,6 +55,10 @@ footer{
 	padding: 10px;
 	background-color: #000000;
 }
+footer p{
+	color: #fff;
+	text-align: center;
+}
 p{
 	text-indent: 2em;
 }
@@ -89,12 +93,32 @@ p{
 .total{
 	background-color: #CEBDBD;
 }
-aside form{
-	text-align: center;
+
+.row{
+	width: 100%;
+	margin: .5em 0;
 }
-form label{
+form .form-label{
+	cursor: pointer;
+	display: inline-block;
+	padding: 3px 6px;
 	text-align: right;
+	width: 300px;
+	vertical-align: top;
 }
-form input{
-	text-align: left;
+.hint{
+	margin-left: 324px;
+	font-size: .9em;
+	color: #A79F9F;
+}
+.sub{
+	text-indent: 0;
+}
+.btn{
+	width: 100%;
+	background: blue;
+	height: 2.5em;
+	border: 0;
+	border-radius: 10px;
+	color: #fff;
 }
