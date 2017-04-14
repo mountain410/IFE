@@ -1,0 +1,100 @@
+body,header,main,footer,nav,aside{
+	padding: 0;
+	margin: 0;
+}
+body{
+	padding: 0 35px;
+	background-color: #0E0C0C;
+	font-family: "黑体",Arial,sans-serif;
+}
+
+.container{
+	background-color: #E9D6D6;
+	max-width: 100%;
+	padding: 10px 10px;
+}
+header{
+	height: 60px;
+	background-color: #303030;
+	vertical-align: middle;
+}
+header .baidu-icon{
+	margin: 0 40px;
+	vertical-align: middle;
+	line-height: 80px;
+	float: left;
+}
+header .nav-list{
+	padding: 0;
+	margin: 0;
+	line-height: 60px;
+	list-style-type: disc;
+	float: right;
+}
+.nav-list li{
+	width: 5em;
+	padding: 0 5px 0 0;
+	float: left;
+}
+.nav-list a{
+	text-decoration: none;
+	font-size: .6em;
+	color: #fff;
+}
+article{
+	margin:10px;
+	padding:20px;
+	background-color: #fff;
+}
+aside{
+	margin:10px;
+	padding: 20px;
+	background-color: #fff;
+}
+footer{
+	padding: 10px;
+	background-color: #000000;
+}
+p{
+	text-indent: 2em;
+}
+.pros-list{
+	list-style: none;
+}
+.pic-list{
+	list-style: none;
+}
+.pic-list li{
+	width: 200px;
+	border: 1px solid #000;
+	padding: 10px;
+	margin: 20px 10px;
+}
+.pic-list p{
+
+}
+#tb{
+	border-collapse: collapse;
+	width: 100%;
+	text-align: left;
+}
+#tb,#tb tr,#tb td,#tb th{
+	border: 1px solid #DED2D2; 
+	padding: 5px;
+}
+.table-head{
+	background-color: #393535;
+	color:#fff;
+}
+.total{
+	background-color: #CEBDBD;
+}
+aside form{
+	text-align: center;
+}
+form label{
+	text-align: right;
+}
+form input{
+	text-align: left;
+}
