@@ -1,4 +1,4 @@
-body,header,main,footer,nav,aside{
+body,header,main,footer,nav{
 	padding: 0;
 	margin: 0;
 }
@@ -11,7 +11,7 @@ body{
 .container{
 	background-color: #E9D6D6;
 	max-width: 100%;
-	padding: 10px 10px;
+	padding: 1px 1px;
 }
 header{
 	height: 60px;
@@ -36,18 +36,33 @@ header .nav-list{
 	padding: 0 5px 0 0;
 	float: left;
 }
-.nav-list a{
+.nav-list a:link{
 	text-decoration: none;
 	font-size: .6em;
 	color: #fff;
 }
+.nav-list a:visited{
+	text-decoration: none;
+	font-size: .6em;
+	color: #fff;
+}
+.nav-list a:hover{
+	font-size: .8em;
+}
+.nav-list a:active{
+	color: #ACA9A9
+}
 article{
-	margin:10px;
+	margin:20px;
 	padding:20px;
 	background-color: #fff;
 }
+article h2{
+	font-size: 1.2em;
+	color: #6D6B6B;
+}
 aside{
-	margin:10px;
+	margin:20px;
 	padding: 20px;
 	background-color: #fff;
 }
@@ -115,10 +130,23 @@ form .form-label{
 	text-indent: 0;
 }
 .btn{
+	cursor: pointer;
 	width: 100%;
 	background: blue;
 	height: 2.5em;
 	border: 0;
 	border-radius: 10px;
 	color: #fff;
+}
+.btn:hover{
+	background-color:#6A36FC;
+}
+#aside-title{
+	height: 50px;
+	border-left: 4px solid #E9D6D6;
+}
+#aside-title h1{
+	font-size: 1em;
+	margin: 0 0 0 15px;
+	line-height: 50px;
 }

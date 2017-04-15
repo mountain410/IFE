@@ -12,10 +12,10 @@
 		<div class="baidu-icon"><img src="images/baidu.png" width="120px" height="40px" alt="baidu" /></div>
 		<nav>
 			<ul class="nav-list">
-				<li><a href="#">导航链接一</a></li>
-				<li><a href="#">导航链接二</a></li>
-				<li><a href="#">导航链接三</a></li>
-				<li><a href="#">导航链接四</a></li>
+				<li><a href="#A1">导航链接一</a></li>
+				<li><a href="#A2">导航链接二</a></li>
+				<li><a href="#A3">导航链接三</a></li>
+				<li><a href="#A4">导航链接四</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -23,13 +23,11 @@
 	<div class="container">
 	<!-- 主页面内容区 -->
 		<main>
-			
 			<!-- 第一篇文章 -->
-			<article>
-				<h1>第一篇文章一级标题</h1>
+			<article >
+				<h1><a name="A1">第一篇文章一级标题</a></h1>
 				<h2>文章二级标题</h2>
 				<div><small>文章作者</small>  <small>文章发表时间</small></div>
-				
 				<p>这是第一段很长很长的段落，这是第一段很长很长的段落，这是第一段很长很长的段落，这是第一段很长很长的段落，这是第一段很长很长的段落，这是第一段很长很长的段落。</p> 
 				<p>这是第二段很长很长的段落，这是第二段很长很长的段落，这里有个<strong>重要的词</strong>，这里有一个<em>强调的词</em>，这是第二段很长很长的段落，这是第二段很长很长的段落。</p>
 				<p>这是第三段很长很长的段落，这是第三段很长很长的段落，这里有一个<a href="http://ife.baidu.com">百度前端技术学院</a>的链接，这是第三段很长很长的段落，这是第三段很长很长的段落，这是第三段很长很长的段落。</p>
@@ -38,12 +36,11 @@
 				<div class="beatifulGirl"><img width="200px" height="200px" src="images/beatifulGirl.jpg" alt="美女" title="美女" /></div>
 				
 				<p>这是第五段很长很长的段落，这是第五段很长很长的段落，这是第五段很长很长的段落，这是一个<b>加粗的词</b>，这是第五段很长很长的段落，这里有一个在新窗口打开的链接<a href="http://ife.baidu.com" target="_blank" >百度前端技术学院</a>，这是第五段很长很长的段落，这是第五段很长很长的段落，这是第五段很长很长的段落，这是第五段很长很长的段落，这是第五段很长很长的段落，这是第五段很长很长的段落，这是第五段很长很长的段落。</p> 
-
 			</article>
 			
 			<!-- 第二篇文章 -->
 			<article>
-				<h1>第二篇文章一级标题</h1>
+				<h1><a name="A2">第二篇文章一级标题</a></h1>
 				<h2>文章二级标题</h2>
 				
 				<div><small>文章作者</small>  <small>文章发表时间</small></div>
@@ -60,11 +57,9 @@
 					<li>列表项目二</li>
 					<li>列表项目三</li>
 				</ul>
-				
-				
 			</article>  
 			<article>
-				<h1>图片</h1>
+				<h1><a name="A3">图片</a></h1>
 				<ul class="pic-list">
 					<li><p>这是好看的赛车图片</p><img src="images/pic1.jpg"  width="200px" height="200px" alt="pic1"></li>
 					<li><p>这是好看的赛车图片</p><img src="images/pic2.jpg"  width="200px" height="200px" alt="pic2"></li>
@@ -80,7 +75,7 @@
 			</article>
 			<!-- 第三篇文章 -->
 			<article>
-				<h1>第三篇文章一级标题</h1>
+				<h1><a name="A4">第三篇文章一级标题</a></h1>
 				<h2>文章二级标题</h2>
 				<div><small>文章作者</small>  <small>文章发表时间</small></div>
 				
@@ -125,7 +120,9 @@
 		</main>
 	<!-- 侧边栏	 -->
 		<aside>
-			<h1>这是一个侧栏的标题</h1>
+			<div id="aside-title">
+				<h1>这是一个侧栏的标题</h1>
+			</div>
 
 			<form action="">
 				<p class="row">
