@@ -1,0 +1,54 @@
+body,html{
+    height:100%;
+    padding: 0;
+    margin: 0
+}
+div{
+	border: 1px solid #999;
+}
+.container{
+	margin: 20px;
+	padding: 0 20px 20px 20px;
+	background-color: #eee;
+	overflow: auto;
+	box-sizing: border-box;
+}
+.left,.right{
+	margin-top: 20px;
+	background-color: #fff;
+}
+.left{
+	float: left;
+	width: 200px;
+	box-sizing: border-box;
+	padding: 20px;
+}
+.center{
+	padding: 20px;
+	margin: 0 120px 0 200px;
+	box-sizing: border-box;
+	border: none;
+}
+
+.right{
+	float: right;
+	width: 120px;
+	box-sizing: border-box;
+}
+.person-logo{
+	width: 80px;
+	height: 80px;
+	background-color: #eee;
+	margin: 20px;
+}
+.left-logo{
+	height: 80px;
+	display: inline-block;
+}
+.left img{
+	width: 80px;
+	height: 80px;
+}
+.left span{
+	vertical-align: top;
+}

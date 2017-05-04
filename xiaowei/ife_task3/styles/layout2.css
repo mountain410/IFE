@@ -1,0 +1,59 @@
+body,html{
+    height:100%;
+    padding: 0;
+    margin: 0
+}
+.container{
+	margin: 20px 1%;
+	padding-left: 240px;
+	padding-right: 160px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #eee;
+	overflow: auto;
+	box-sizing: border-box;
+}
+div{
+	border: 1px solid #999;
+}
+.left,.center,.right{
+	background-color: #fff;
+}
+.left{
+	float: left;
+	width: 200px;
+	margin-left: -100%;  /*注意！！！ 这个百分数是相对于父元素的*/
+	position: relative;
+	left: -220px;
+	box-sizing: border-box;
+	padding: 20px;
+}
+.center{
+	padding: 20px;
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+}
+.right{
+	float: left;
+	width: 120px;
+	margin-left: -120px;
+	position: relative;
+	right: -140px;
+	box-sizing: border-box;
+}
+.person-logo{
+	width: 80px;
+	height: 80px;
+	background-color: #eee;
+	margin: 20px;
+}
+.left-logo{
+	width: 80px;
+	height: 80px;
+	background-color: #eee;
+	display: inline-block;
+}
+.left span{
+	vertical-align: top;
+}
