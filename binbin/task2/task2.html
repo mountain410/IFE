@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task2</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list">
+
+  </ul>
+
+<script type="text/javascript">
+
+  var aqiData = [
+    ["北京", 90],
+    ["上海", 50],
+    ["福州", 10],
+    ["南京", 80],
+    ["广州", 50],
+    ["成都", 90],
+    ["西安", 100]
+  ];
+
+  (function () {
+
+    //筛选大于空气指数60以上的城市数据
+    var filterArr = aqiData.filter(function(item,index){
+      return (item[1] > 60)
+    });
+    //将城市数据降序排序
+    var targetArr = filterArr.sort(function(a,b){
+      return b[1] - a[1];
+    });
+    //将数据显示在列表中
+    var ul = document.getElementById('aqi-list');
+    targetArr.map(function(item,index){
+      var list = document.createElement("li");
+      list.innerHTML = "第" + (index+1) + "名：" + item[0] + "，" + item[1];
+      ul.appendChild(list);
+    });
+  })();
+
+</script>
+</body>
+</html>
