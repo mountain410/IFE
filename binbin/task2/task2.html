@@ -35,11 +35,11 @@
     });
     //将数据显示在列表中
     var ul = document.getElementById('aqi-list');
+    var txt='';
     targetArr.map(function(item,index){
-      var list = document.createElement("li");
-      list.innerHTML = "第" + (index+1) + "名：" + item[0] + "，" + item[1];
-      ul.appendChild(list);
+      txt += "<li>第" + (index+1) + "名：" + item[0] + "，" + item[1] + "</li>";
     });
+    ul.innerHTML = txt;
   })();
 
 </script>
