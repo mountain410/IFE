@@ -3,30 +3,28 @@ body,header,main,footer,nav{
 	margin: 0;
 }
 body{
-	background-color: #0E0C0C;
 	font-family: "黑体",Arial,sans-serif;
 }
 
-.container{
-	background-color: #E9D6D6;
-	max-width: 100%;
-	padding: 1px 1px;
-}
+/*头部样式部分*/
 header{
 	height: 60px;
 	background-color: #303030;
-	vertical-align: middle;
 }
 header .baidu-icon{
 	margin: 0 40px;
-	vertical-align: middle;
-	line-height: 80px;
+	line-height: 52px;
 	float: left;
+}
+.baidu-icon img{
+	width: 120px;
+	height: 40px;
+	vertical-align: middle;
 }
 header .nav-list{
 	padding: 0;
 	margin: 0;
-	line-height: 60px;
+	line-height: 58px;
 	list-style-type: disc;
 	float: right;
 }
@@ -51,6 +49,20 @@ header .nav-list{
 .nav-list a:active{
 	color: #ACA9A9
 }
+
+/*正文样式部分*/
+.container{
+	background-color: #E9D6D6;
+	width: 100%;
+	overflow: auto;
+}
+main{
+	width: 100%;
+	float: left;
+}
+main .inner{
+	margin-right: 410px;
+}
 article{
 	margin:20px;
 	padding:20px;
@@ -60,19 +72,6 @@ article h2{
 	font-size: 1.2em;
 	color: #6D6B6B;
 }
-aside{
-	margin:20px;
-	padding: 20px;
-	background-color: #fff;
-}
-footer{
-	padding: 10px;
-	background-color: #000000;
-}
-footer p{
-	color: #fff;
-	text-align: center;
-}
 p{
 	text-indent: 2em;
 }
@@ -81,15 +80,14 @@ p{
 }
 .pic-list{
 	list-style: none;
+	padding:0;
 }
 .pic-list li{
+	display: inline-block;
 	width: 200px;
 	border: 1px solid #000;
 	padding: 10px;
 	margin: 20px 10px;
-}
-.pic-list p{
-
 }
 #tb{
 	border-collapse: collapse;
@@ -108,7 +106,19 @@ p{
 	background-color: #CEBDBD;
 }
 
-.row{
+/*侧边栏样式部分*/
+aside{
+	width: 350px;
+	margin:20px;
+	padding: 20px;
+	background-color: #fff;
+	float: left;
+	margin-left: -410px;
+}
+aside p{
+	text-indent: 0;
+}
+form .row{
 	width: 100%;
 	margin: .5em 0;
 }
@@ -117,16 +127,20 @@ form .form-label{
 	display: inline-block;
 	padding: 3px 6px;
 	text-align: right;
-	width: 300px;
+	width: 40%;
 	vertical-align: top;
 }
 .hint{
-	margin-left: 324px;
+	margin-top:0;
+	margin-left: 45%;
 	font-size: .9em;
 	color: #A79F9F;
 }
 .sub{
 	text-indent: 0;
+}
+p textarea{
+	width: 45%;
 }
 .btn{
 	cursor: pointer;
@@ -148,4 +162,18 @@ form .form-label{
 	font-size: 1em;
 	margin: 0 0 0 15px;
 	line-height: 50px;
+}
+
+/*底部样式部分*/
+footer{
+	padding: 10px;
+	background-color: #000000;
+}
+footer p{
+	color: #fff;
+	text-align: center;
+}
+
+article,aside{
+	box-shadow: 1px 1px 2px #464444;
 }

@@ -39,13 +39,13 @@ div{
 	width: 80px;
 	height: 80px;
 	background-color: #eee;
-	margin: 20px auto;
+	margin: 20px;
 }
-.left-logo{
+
+.left img{
+	display: inline-block;
 	width: 80px;
 	height: 80px;
-	background-color: #eee;
-	display: inline-block;
 }
 .left span{
 	vertical-align: top;

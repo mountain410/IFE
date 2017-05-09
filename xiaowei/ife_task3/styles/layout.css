@@ -48,11 +48,9 @@ div{
 	background-color: #eee;
 	margin: 20px;
 }
-.left-logo{
-	height: 80px;
-	display: inline-block;
-}
+
 .left img{
+	display: inline-block;
 	width: 80px;
 	height: 80px;
 }
