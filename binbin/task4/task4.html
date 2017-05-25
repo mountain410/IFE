@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task4</title>
+	<style>
+		.btn{
+			background-color: #fff;
+			border: 2px solid #eee;
+			width: 80px;
+			border-radius: 5px;
+		}
+		.btn:hover{
+			background-color: blue;
+			color:#fff;
+		}
+		.spa{
+			margin-left: 20px;
+		}
+		#content div{
+			cursor: pointer;
+			display: inline-block;
+			background-color: red;
+			color: #fff;
+			padding: 10px;
+			margin: 5px 12px 5px 0;
+		}
+	</style>
+</head>
+<body>
+	<h3>队列（栈）的模拟实现</h3>
+	<div id="op">
+		<label for="input">请输入要插入的数据：<input type="text" id="input" /></label>
+		<button class="btn">左侧入</button>
+		<button class="btn">右侧入</button>
+		<button class="btn spa">左侧出</button>
+		<button class="btn">右侧出</button>
+	</div>
+	<div id="content">
+	</div>
+
+	<script type="text/javascript" >
+		var data = new Array();
+		var dataList = '';
+		var op = document.getElementById('op');
+		var btns = op.getElementsByTagName('button');
+		var input = document.getElementById('input');
+		var content = document.getElementById('content');
+		
+		//队列（栈）插入
+		btns[0].onclick = function(){
+			if (numCheck()) {
+				data.unshift(input.value);
+				render();
+			}
+			input.value = '';
+			input.focus();
+		}
+		btns[1].onclick = function(){
+			if (numCheck()) {
+				data.push(input.value);
+				render();
+			}
+			input.value = '';
+			input.focus();
+		}
+		
+		//队列（栈）删除
+		btns[2].onclick = function(){
+			//先判断队列是否为空
+			if(data.length < 1) {
+				alert("队列（栈）为空，请输入数据！");
+				input.focus();
+				return false;
+			}
+			var conf = confirm("确定删除左侧元素" + data[0] + "?");
+			if(conf) {
+				data.shift();
+				render();
+			} 
+		}
+		btns[3].onclick = function(){
+			//先判断队列是否为空
+			if(data.length < 1) {
+				alert("队列（栈）为空，请输入数据！");
+				input.focus();
+				return false;
+			}
+			var conf = confirm("确定删除左侧元素" + data[0] + "?");
+			if(conf) {
+				data.pop();
+				render();
+			} 
+		}
+
+		//用事件委托实现点击数列本身，删除自己
+		content.addEventListener("click",function(e){
+			content.removeChild(e.target);
+		},false)
+
+		//检查输入框是否为空和数字
+		function numCheck(){
+			if (input.value.trim() == '') {
+				alert("输入框不能为空！");
+				return false;
+			}
+			if (!/^[0-9]+.?[0-9]*$/.test(input.value.trim())) {
+				alert("请输入数字！");
+				return false;
+			}
+			return true;
+		}
+
+		//渲染操作后的队列
+		function render(){
+			for (var i = 0; i < data.length; i++) {
+				dataList += "<div>" + data[i] + "</div>" ; 
+			}
+			content.innerHTML = dataList;
+			dataList = '';
+		}
+	</script>
+</body>
+</html>

@@ -40,7 +40,7 @@ var srcList = src.getElementsByTagName('li');
 var data = [];
 function getData() {
   for (var i = 0; i < srcList.length; i++) {
-    var str = srcList[i].firstChild.data;
+    var str = srcList[i].firstChild.nodeValue;
     var city = str.slice(0, str.indexOf('空气'));
     var num = srcList[i].lastChild.innerHTML;
     data[i] = [city,parseInt(num)]
