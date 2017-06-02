@@ -17,7 +17,7 @@
 		.spa{
 			margin-left: 20px;
 		}
-		#content div{
+		#content li{
 			cursor: pointer;
 			display: inline-block;
 			background-color: red;
@@ -36,8 +36,8 @@
 		<button class="btn spa">左侧出</button>
 		<button class="btn">右侧出</button>
 	</div>
-	<div id="content">
-	</div>
+	<ul id="content">
+	</ul>
 
 	<script type="text/javascript" >
 		var data = new Array();
@@ -86,7 +86,7 @@
 				input.focus();
 				return false;
 			}
-			var conf = confirm("确定删除左侧元素" + data[0] + "?");
+			var conf = confirm("确定删除右侧元素" + data[data.length-1] + "?");
 			if(conf) {
 				data.pop();
 				render();
@@ -114,7 +114,7 @@
 		//渲染操作后的队列
 		function render(){
 			for (var i = 0; i < data.length; i++) {
-				dataList += "<div>" + data[i] + "</div>" ; 
+				dataList += "<li>" + data[i] + "</li>" ; 
 			}
 			content.innerHTML = dataList;
 			dataList = '';
