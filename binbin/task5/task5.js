@@ -54,7 +54,9 @@ btns[3].onclick = function(){
 
 //用事件委托实现点击数列本身，删除自己
 content.addEventListener("click",function(e){
+	var index = e.target.id.substr(4);
 	content.removeChild(e.target);
+	data.splice(index,1);
 },false)
 
 //可视化排序绑定点击事件
@@ -123,6 +125,7 @@ function render(dataArray){
 	content.innerHTML = '';
 	for (var i = 0; i < dataArray.length; i++) {
 		var li = document.createElement('li');
+		li.id = "item" + i ;
 		li.style.height = dataArray[i]*2 + "px";
 		li.innerHTML = dataArray[i];
 		content.appendChild(li);
