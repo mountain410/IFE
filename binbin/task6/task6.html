@@ -4,17 +4,29 @@
 	<meta charset="UTF-8">
 	<title>task6</title>
 	<style>
-		.btn{
+		label{
+			vertical-align: top;
+		}
+		.search{
+			display: inline-block;
+			margin-left: 50px;	
+			vertical-align: top;
+		}
+		#text{
+			margin: 5px 0;
+		}
+		button{
+			cursor: pointer;
 			background-color: #fff;
 			border: 2px solid #eee;
 			width: 80px;
 			border-radius: 5px;
 		}
-		.btn:hover{
+		button:hover{
 			background-color: blue;
 			color:#fff;
 		}
-		.spa{
+		#btn-left-out{
 			margin-left: 20px;
 		}
 		#content li{
@@ -29,36 +41,43 @@
 </head>
 <body>
 	<h3>队列（栈）的模拟实现</h3>
-	<div id="op">
-		<label for="input">请输入要插入的数据：<input type="text" id="input" /></label>
-		<button class="btn">左侧入</button>
-		<button class="btn">右侧入</button>
-		<button class="btn spa">左侧出</button>
-		<button class="btn">右侧出</button>
+	<label for="text">
+	请输入要插入的数据：
+		<textarea name="text" id="text" cols="30" rows="10" ></textarea>
+	</label>
+	<div id="operation">
+		<button id="btn-left-in">左侧入</button>
+		<button id="btn-right-in">右侧入</button>
+		<button id="btn-left-out">左侧出</button>
+		<button id="btn-right-out">右侧出</button>
+		<div class="search">
+			<input type="search" name="textSearch" id="textSearch">
+			<button id="btn-search">查询</button>
+		</div>
 	</div>
 	<ul id="content">
 	</ul>
-
 	<script type="text/javascript" >
-		var data = new Array();
-		var dataList = '';
-		var op = document.getElementById('op');
-		var btns = op.getElementsByTagName('button');
-		var input = document.getElementById('input');
+		var data = new Array;
+		var input = document.getElementById('text');
 		var content = document.getElementById('content');
-		
+		var list = content.getElementsByTagName('li');
 		//队列（栈）插入
-		btns[0].onclick = function(){
+		var leftIn = document.getElementById('btn-left-in')
+		leftIn.onclick = function(){
+			var inputData = input.value.split(/;|,|，|、| |\r|\n/);
 			if (numCheck()) {
-				data.unshift(input.value);
+				data = inputData.concat(data);
 				render();
 			}
 			input.value = '';
 			input.focus();
 		}
-		btns[1].onclick = function(){
+		var rightIn = document.getElementById('btn-right-in')
+		rightIn.onclick = function(){
+			var inputData = input.value.split(/;|,|，|、| |\r|\n/);
 			if (numCheck()) {
-				data.push(input.value);
+				data = data.concat(inputData);
 				render();
 			}
 			input.value = '';
@@ -66,7 +85,8 @@
 		}
 		
 		//队列（栈）删除
-		btns[2].onclick = function(){
+		var leftOut = document.getElementById('btn-left-out')
+		leftOut.onclick = function(){
 			//先判断队列是否为空
 			if(data.length < 1) {
 				alert("队列（栈）为空，请输入数据！");
@@ -79,7 +99,8 @@
 				render();
 			} 
 		}
-		btns[3].onclick = function(){
+		var rightOut = document.getElementById('btn-right-out')
+		rightOut.onclick = function(){
 			//先判断队列是否为空
 			if(data.length < 1) {
 				alert("队列（栈）为空，请输入数据！");
@@ -93,9 +114,26 @@
 			} 
 		}
 
+		var textSearch = document.getElementById('textSearch');
+		var btnSearch = document.getElementById('btn-search');
+		btnSearch.onclick = function(){
+			for (var i = 0; i < list.length; i++) {
+				list[i].removeAttribute('style');
+			}
+			var txt = textSearch.value;
+			for (var i = 0; i < data.length; i++) {
+				if(data[i].indexOf(txt) != -1){
+					var li = document.getElementById('item' + i);
+					li.style.backgroundColor = "blue";
+				}
+			}
+		}
+
 		//用事件委托实现点击数列本身，删除自己
 		content.addEventListener("click",function(e){
+			var index = e.target.id.substr(4);
 			content.removeChild(e.target);
+			data.splice(index,1);
 		},false)
 
 		//检查输入框是否为空和数字
@@ -104,20 +142,24 @@
 				alert("输入框不能为空！");
 				return false;
 			}
-			if (!/^[0-9]+.?[0-9]*$/.test(input.value.trim())) {
-				alert("请输入数字！");
-				return false;
-			}
 			return true;
+		}
+
+		function search(txt){
+
 		}
 
 		//渲染操作后的队列
 		function render(){
+			content.innerHTML = '';
 			for (var i = 0; i < data.length; i++) {
-				dataList += "<li>" + data[i] + "</li>" ; 
+				if(!data[i] == ""){
+					var li = document.createElement('li');
+					li.id = "item" + i ;
+					li.innerHTML = data[i];
+					content.appendChild(li);
+				}
 			}
-			content.innerHTML = dataList;
-			dataList = '';
 		}
 	</script>
 </body>
