@@ -17,7 +17,6 @@
 			height: 200px;
 			background-color: #fff;
 			margin: 200px auto;
-			vertical-align: middle;
 			display: flex;
 			align-items: center;
 			border-radius: 5px;
@@ -66,39 +65,47 @@
 		</div>
 	</form>
 	<script>
-		var txt = document.getElementById('txt');
-		var check = document.getElementById('check');
-		var prompt = document.getElementById('prompt');
+		//模仿块级作用域，匿名函数立即执行
+		(function(){
+			var txt = document.getElementById('txt');
+			var check = document.getElementById('check');
+			var prompt = document.getElementById('prompt');
 
-		check.onclick = function(){
-			var content = txt.value.trim();
-			var len = 0;
-			for (var i = 0; i < content.length; i++) {
-				if((/[^\x00-\xff]/).test(content[i])){
-					len +=2;
+			//点击验证按钮，对输入框内容进行校验
+			check.onclick = function(){
+				var content = txt.value.trim();
+				var len = 0;
+				//输入字符串长度计算（英文及符号长度为1，中文及符号长度为2）
+				for (var i = 0; i < content.length; i++) {
+					if((/[^\x00-\xff]/).test(content[i])){
+						len +=2;
+					}else{
+						len++;
+					}
+				}
+				//输入框校验
+				if(content == ''){
+					txt.style.border = "1px solid red";
+					prompt.innerHTML = "名称不能为空！";
+					prompt.style.color = "red"; 
+				}else if(!(len>=4 && len<=16)){
+					txt.style.border = "1px solid red";
+					prompt.innerHTML = "请输入4~16位字符！";
+					prompt.style.color = "red"; 
 				}else{
-					len++;
+					txt.style.border = "1px solid green";
+					prompt.innerHTML = "名称格式正确！";
+					prompt.style.color = "green"; 
 				}
 			}
-			if(content == ''){
-				txt.style.border = "1px solid red";
-				prompt.innerHTML = "名称不能为空！";
-				prompt.style.color = "red"; 
-			}else if(!(len>=4 && len<=16)){
-				txt.style.border = "1px solid red";
-				prompt.innerHTML = "请输入4~16位字符！";
-				prompt.style.color = "red"; 
-			}else{
-				txt.style.border = "1px solid green";
-				prompt.innerHTML = "名称格式正确！";
-				prompt.style.color = "green"; 
+
+			//当输入框获取焦点时，恢复默认状态
+			txt.onfocus = function(){
+				txt.style.border = "1px solid lightgray";
+				prompt.innerHTML = "必填，长度为4~16个字符";
+				prompt.style.color = "gray"; 
 			}
-		}
-		txt.onfocus = function(){
-			txt.style.border = "1px solid lightgray";
-			prompt.innerHTML = "必填，长度为4~16个字符";
-			prompt.style.color = "gray"; 
-		}
+		})()
 	</script>
 </body>
 </html>
