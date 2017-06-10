@@ -7,38 +7,64 @@
 		*{
 			box-sizing: border-box;
 		}
+		body{
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 16px;
+			background-color: #000;
+		}
+		#checkForm{
+			width: 500px;
+			height: 200px;
+			background-color: #fff;
+			margin: 200px auto;
+			vertical-align: middle;
+			display: flex;
+			align-items: center;
+			border-radius: 5px;
+			font-size: 1.2em;
+		}
+		#main{
+			margin: 0 auto;
+		}
+		#main label{
+			font-size: 1.2em;
+		}
 		#txt{
 			border-radius: 5px;
-			border: 1px solid lightgray;
+			border: 2px solid lightgray;
 			margin: 0 20px;
 			width: 15em;
 			height: 2em;
+			font-size: 1em;
 		}
-		button{
+		#main button{
 			cursor: pointer;
-			background-color: #fff;
-			border: 2px solid #eee;
+			background-color: #2335FC;
+			border: 2px solid #2335FC;
 			width: 80px;
 			border-radius: 5px;
-		}
-		button:hover{
-			background-color: blue;
+			font-size: 1.2em;
 			color:#fff;
 		}
-		#prompt span{
-			margin-left: 60px;
-			color: lightgray;
+		button:hover{
+			border-color: #4387F5; 
+		}
+		#prompt{
+			display: block;
+			margin-left: 75px;
+			color: gray;
 		}
 	</style>
 </head>
 <body>
-	<label for="txt">名称
-		<input type="text" id="txt" name="txt" required>
-		<button id="check">验证</button>
-	</label>
-	<div id="prompt">
-		<span>必填，长度为4~16个字符</span>
-	</div>
+	<form id="checkForm">
+		<div id="main">
+			<label for="txt">名称</label>
+			<input type="text" id="txt" name="txt" required>
+			<button id="check" type="button">验证</button>
+			<span id="prompt">必填，长度为4~16个字符</span>
+		</div>
+	</form>
 	<script>
 		var txt = document.getElementById('txt');
 		var check = document.getElementById('check');
@@ -46,25 +72,32 @@
 
 		check.onclick = function(){
 			var content = txt.value.trim();
+			var len = 0;
+			for (var i = 0; i < content.length; i++) {
+				if((/[^\x00-\xff]/).test(content[i])){
+					len +=2;
+				}else{
+					len++;
+				}
+			}
 			if(content == ''){
 				txt.style.border = "1px solid red";
-				prompt.innerHTML = "<span>名称不能为空！</span>";
-				prompt.firstChild.style.color = "red"; 
-			}else if(!(content.length>=4 && content.length<=16)){
+				prompt.innerHTML = "名称不能为空！";
+				prompt.style.color = "red"; 
+			}else if(!(len>=4 && len<=16)){
 				txt.style.border = "1px solid red";
-				prompt.innerHTML = "<span>格式不对，请重新输入！</span>";
-				prompt.firstChild.style.color = "red"; 
+				prompt.innerHTML = "请输入4~16位字符！";
+				prompt.style.color = "red"; 
 			}else{
 				txt.style.border = "1px solid green";
-				prompt.innerHTML = "<span>名称格式正确！</span>";
-				prompt.firstChild.style.color = "green"; 
+				prompt.innerHTML = "名称格式正确！";
+				prompt.style.color = "green"; 
 			}
-
 		}
 		txt.onfocus = function(){
 			txt.style.border = "1px solid lightgray";
-			prompt.innerHTML = "<span>必填，长度为4~16个字符</span>";
-			prompt.firstChild.style.color = "lightgray"; 
+			prompt.innerHTML = "必填，长度为4~16个字符";
+			prompt.style.color = "gray"; 
 		}
 	</script>
 </body>
