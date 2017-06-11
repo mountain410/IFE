@@ -56,7 +56,7 @@
 	</style>
 </head>
 <body>
-	<form id="checkForm">
+	<form id="checkForm" onkeydown="if(event.keyCode==13)return false;">
 		<div id="main">
 			<label for="txt">名称</label>
 			<input type="text" id="txt" name="txt" required>
