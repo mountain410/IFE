@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2</title>
+	<style>
+		*{
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 16px;
+			background-color: #000;
+		}
+		#form-check{
+			width: 800px;
+			padding: 50px;
+			background-color: #fff;
+			border-radius: 5px;
+			margin:300px auto;
+			font-size: 1.2em;
+		}
+		#form-check>div{
+			width: 555px;
+			margin: 20px auto;
+		}
+		form label{
+			cursor: pointer;
+			display: inline-block;
+			width: 125px;
+			font-size: 1.2em;
+			text-align: right;
+		}
+		.txt{
+			border-radius: 5px;
+			border: 2px solid lightgray;
+			margin: 0 20px;
+			width: 20em;
+			height: 2em;
+			font-size: 1em;
+		}
+		#check{
+			cursor: pointer;
+			background-color: #2335FC;
+			border: 2px solid #2335FC;
+			width: 80px;
+			border-radius: 5px;
+			font-size: 1.2em;
+			color:#fff;
+		}
+		#check:hover{
+			border-color: #4387F5; 
+		}
+		.prompt{
+			display: block;
+			margin-left: 155px;
+			color: gray;
+		}
+		#btn-check{
+			text-align: right;
+			padding-right: 22px;
+		}
+	</style>
+</head>
+<body>
+	<form id="form-check" onkeydown="if(event.keyCode==13)return false;">
+		<div id="row-fname">
+			<label for="fname">名称</label>
+			<input type="text" class="txt" id="fname" required>
+			<span class="prompt"></span>
+		</div>
+		<div id="row-pass">
+			<label for="password">密码</label>
+			<input type="text" class="txt" id="password" required>
+			<span class="prompt"></span>
+		</div>
+		<div id="row-pass-again">
+			<label for="pass-again">请确认密码</label>
+			<input type="text" class="txt" id="pass-again" required>
+			<span class="prompt"></span>
+		</div>
+		<div id="row-mail">
+			<label for="mail">邮箱</label>
+			<input type="text" class="txt" id="mail" required>
+			<span class="prompt"></span>
+		</div>
+		<div id="row-tel">
+			<label for="tel">手机</label>
+			<input type="text" class="txt" id="tel" required>
+			<span class="prompt"></span>
+		</div>
+		<div id="btn-check">
+			<button id="check" type="button">验证</button>
+		</div>
+	</form>
+	<script>
+		//模仿块级作用域，匿名函数立即执行
+		(function(){
+			var check = document.getElementById('check');
+			var prompt = document.getElementById('prompt');
+			var sapns = document.getElementsByTagName('span');
+
+			//名称输入框
+			var fname = document.getElementById('fname');
+			fname.onfocus = function(){
+				sapns[0].innerHTML = "请输入4~16位名称！"
+			}
+			fname.onblur = function(){
+				nameCheck(fname.value.trim())
+			}
+
+
+
+
+			//名称验证
+			function nameCheck(input){
+
+			}
+			//密码验证
+			function passCheck(input){
+
+			}
+			//邮箱验证
+			function mailCheck(input){
+
+			}
+			//手机验证
+			function telCheck(input){
+
+			}
+
+
+
+
+			// //点击验证按钮，对输入框内容进行校验
+			// check.onclick = function(){
+			// 	var content = txt.value.trim();
+			// 	var len = 0;
+			// 	//输入字符串长度计算（英文及符号长度为1，中文及符号长度为2）
+			// 	for (var i = 0; i < content.length; i++) {
+			// 		if((/[^\x00-\xff]/).test(content[i])){
+			// 			len +=2;
+			// 		}else{
+			// 			len++;
+			// 		}
+			// 	}
+			// 	//输入框校验
+			// 	if(content == ''){
+			// 		txt.style.border = "1px solid red";
+			// 		prompt.innerHTML = "名称不能为空！";
+			// 		prompt.style.color = "red"; 
+			// 	}else if(!(len>=4 && len<=16)){
+			// 		txt.style.border = "1px solid red";
+			// 		prompt.innerHTML = "请输入4~16位字符！";
+			// 		prompt.style.color = "red"; 
+			// 	}else{
+			// 		txt.style.border = "1px solid green";
+			// 		prompt.innerHTML = "名称格式正确！";
+			// 		prompt.style.color = "green"; 
+			// 	}
+			// }
+
+			// //当输入框获取焦点时，恢复默认状态
+			// txt.onfocus = function(){
+			// 	txt.style.border = "1px solid lightgray";
+			// 	prompt.innerHTML = "必填，长度为4~16个字符";
+			// 	prompt.style.color = "gray"; 
+			// }
+		})()
+	</script>
+</body>
+</html>
