@@ -1,0 +1,169 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: black;
+	padding: 0;
+	margin: 0;
+	font-family: '微软雅黑','黑体','宋体','楷体'
+}
+
+#container{
+	width: 980px;
+	height: 1386px;
+	background-color: #fff;
+	margin: 0 auto;
+	padding: 0 44px;
+}
+header{
+	border-bottom: 2px solid #938e8c;
+	position: relative;
+}
+header #block{
+	width: 110px;
+	height: 61px;
+	background-color: #ED2B2F;
+}
+header #ife{
+	position: absolute;
+	bottom: 0px;
+	color: #fff;
+	font-size: 12px;
+	margin: 0 0 5px 8px;
+}
+header #date{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-size: 12px;
+	color: #d45d5c;
+	margin-bottom: 5px;
+}
+
+
+div .up{
+	margin: 30px 0 ;
+	position: relative;
+}
+.up-img{
+	width: 640px;
+	position: relative;
+}
+.up-img .img-l{
+	width: 190px;
+	height:300px;
+	background-color: #75b86b;
+	opacity: 0.3;
+	position: absolute;
+	top: 0;
+}
+.up-img .img-r{
+	width: 190px;
+	height: 300px;
+	background-color: #d45d5c;
+	opacity: 0.3;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.up aside{
+	border-top: 2px solid #cc8091;
+	width: 203px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.up aside .about{
+	margin: 0;
+	font-size: 24px;
+	word-spacing: 40px;
+	text-decoration: underline;
+	font-variant:small-caps;
+}
+.up .para{
+	font-size: 12px;
+	color: #676767;
+	word-spacing: 1px;
+	font-family: '楷体';
+}
+.up .seven{
+	font-size: 100px;
+	font-style: italic;
+	color: #75b86b;
+}
+.up .three{
+	display: inline-block;
+	font-size: 55px;
+	color: #cc8091;
+}
+.up .thr{
+	display: inline-block;
+}
+.thr-1{
+	font-size: 21px;
+	color: #cc8091;
+}
+.thr-2{
+	font-size: 12px;
+	color: #cc8091;
+}
+
+.up article section{
+	display: inline-block;
+	width: 200px;
+	height: 167px;
+}
+.up article section h3{
+	margin: 0;
+	text-decoration: underline;
+	font-size: 16px;
+}
+.when{
+	margin: 0 40px;
+}
+.what h3{
+	color: #418c59;
+}
+.when h3{
+	color: #d2994f;
+}
+.how h3{
+	color: #cc7680;
+}
+.up article section p{
+	font-size: 12px;
+	margin: 5px 0 ;
+}
+.what p{
+	color: #767777;
+	font-family: '宋体';
+}
+.when p{
+	color: #231815;
+	opacity: 0.7;
+}
+.how p{
+	color: #cd4a48;
+	opacity: 0.7;
+}
+.percent{
+	margin-bottom: 20px !important;
+}
+
+
+
+footer{
+	border-top: 1px solid #938e8c;
+	height: 50px;
+	position: relative;
+}
+footer #com{
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 12px;
+	color: #d45d5c;
+}
