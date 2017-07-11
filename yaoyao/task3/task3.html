@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>task1</title>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 16px;
+			background-color: #000;
+		}
+		#choose-form{
+			width: 900px;
+			height: 200px;
+			background-color: #fff;
+			margin: 200px auto;
+			border-radius: 5px;
+			font-size: 1.2em;
+	    padding: 25px;
+		}
+		#main{
+			margin: 30px 120px;
+		}
+		label{
+			cursor: pointer;
+		}
+		#oth-school{
+			display: none;
+		}
+		#sel{
+			display: none;
+		}
+		#inp{
+			display: none;
+		}
+
+		div#choose{
+	    margin: 20px 30px;
+		}
+		span.radios{
+			display: inline-block;
+	    margin: 0 45px;
+		}
+		div.detail{
+			margin: 10px 80px;
+		}
+		select{
+			margin: 0 15px;
+	    width: 150px;
+	    height: 1.7em;
+	    font-size: 16px;
+		}
+		#inp input{
+	    height: 1.7em;
+	    margin: 0 25px;
+		}
+	</style>
+</head>
+<body>
+	<form id="choose-form" onkeydown="if(event.keyCode==13)return false;">
+		<div id="main">
+			<div id="choose">
+				<span class="radios">
+					<input type="radio" name="identity" id="student" value="student" />
+					<label for="student">在校生</label>
+				</span>
+				<span class="radios">
+					<input type="radio" name="identity" id="noStudent" value="noStudent" />
+					<label for="noStudent">非在校生</label>
+				</span>
+			</div>
+			<div class="detail">
+				<div id="sel">
+					<label for="campus">学校</label>
+					<select name="cities" id="city" onChange="selCity(this.options[this.selectedIndex].value)">
+						<option value="all">-请选择-</option>
+						<option value="bj">北京</option>
+						<option value="sh">上海</option>
+						<option value="zj">浙江</option>
+						<option value="js">江苏</option>
+						<option value="other">其他</option>
+					</select>
+					<select name="schools" id="school" onChange="selSchool(this.options[this.selectedIndex].text)">
+						<option value="none">-请选择-</option>
+					</select>
+					<input type="text" id="oth-school" />
+				</div>
+				<div id="inp">
+					<label for="company">就业单位</label>
+					<input type="text" id="company" />
+				</div>
+			</div>
+		</div>
+	</form>
+	<script>
+		var bj = ['北京大学','清华大学','北京邮电大学','北京航空航天大学','其他'];
+		var sh = ['上海复旦大学','上海同济大学','上海大学','华东师范大学','其他'];
+		var zj = ['浙江大学','杭州电子科技大学','浙江师范大学','浙江理工大学','其他'];
+		var js = ['南京大学','东南大学','南京理工大学','南京邮电大学','其他'];
+		var othSchool = document.getElementById('oth-school');
+
+		var choose = document.getElementById('choose');
+		var student = document.getElementById('student');
+		var noStudent = document.getElementById('noStudent');
+		var sel = document.getElementById('sel');
+		var inp = document.getElementById('inp');
+
+		// 点击单选按钮触发
+		choose.onclick = function(){
+			if (student.checked == true) {
+				sel.style.display = "inline-block";
+				inp.style.display = "none";
+			}else if(noStudent.checked == true) {
+				inp.style.display = "inline-block";
+				sel.style.display = "none";
+
+			}
+		}
+
+		// 在校生选择城市时函数
+		function selCity(value){
+			var schOption = document.getElementById('school');
+			othSchool.style.display = "none";
+			othSchool.value = ''
+			schOption.innerHTML = '';
+			switch(value) {
+				case 'bj':
+					bj.map(function(item,index){
+						schOption.options[school.length] = new Option(item,'sch-' + index);
+					})
+					break;
+				case 'sh':
+					sh.map(function(item,index){
+						schOption.options[school.length] = new Option(item,'sch-' + index);
+					})
+					break;
+				case 'zj':
+					zj.map(function(item,index){
+						schOption.options[school.length] = new Option(item,'sch-' + index);
+					})
+					break;
+				case 'js':
+					js.map(function(item,index){
+						schOption.options[school.length] = new Option(item,'sch-' + index);
+					})
+					break;
+				case 'all':
+					schOption.options[0] = new Option("-请选择-","none");
+					break;
+				case 'other':
+					schOption.options[0] = new Option("其他","others");
+					othSchool.style.display = "inline-block";
+					break;
+			}
+		}
+
+		// 在校生选择学校时函数
+		function selSchool(text){
+			othSchool.style.display = "none";
+			othSchool.value = ''
+			if(text == "其他"){
+				othSchool.style.display = "inline-block";
+			}
+		}
+	</script>
+</body>
+</html>
