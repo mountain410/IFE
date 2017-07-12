@@ -52,11 +52,25 @@
 			height: 6px;
 			background-color: blue;
 		}
-		div#buttons{
-			margin: 20px;
-		}
-		button{
+		.btns{
 			cursor: pointer;
+			margin: 20px 0;
+			background-color: #2335FC;
+			border: 2px solid #2335FC;
+			width: 50px;
+			border-radius: 5px;
+			color:#fff;
+		}
+		.btns:hover{
+			border-color: #4387F5; 
+		}
+		dl{
+			font-size: 12px;
+			text-align: left;
+	    margin: -10px 0 0 110px;
+		}
+		#buttons button{
+			margin-left: 10px;
 		}
 	</style>
 </head>
@@ -217,21 +231,64 @@
 			<div id="move-red">
 				<span id="move-blue"></span>
 			</div>
+			<div id="do">
+				<input type="text" id="command" />
+				<button id="execute" class="btns">执行</button>
+			</div>
+			<dl>
+				<dt>*说明：输入框指令规则如下，点击按钮执行：</dt>
+				<dd>GO：向蓝色边所面向的方向前进一格</dd>
+				<dd>TUN LEF：向左转（逆时针旋转90度）</dd>
+				<dd>TUN RIG：向右转（顺时针旋转90度）</dd>
+				<dd>TUN BAC：向右转（旋转180度）</dd>
+				<br/>
+				<dt>*你也可以直接选择按下面的按钮指定动作：</dt>
+			</dl>
 			<div id="buttons">
-				<button id="go">走</button>
-				<button id="tleft">左转</button>
-				<button id="tright">右转</button>
-				<button id="tback">掉头</button>
+				<button id="go" class="btns">走</button>
+				<button id="tleft" class="btns">左转</button>
+				<button id="tright" class="btns">右转</button>
+				<button id="tback" class="btns">掉头</button>
 			</div>
 		</div>
 	</div>
 	<script>
 		var block = document.getElementById('move-red');
-		var btns = document.getElementById('buttons');
-		var blockBlue = document.getElementById('move-blue');
+		var buttons = document.getElementById('buttons');
 		var leftInit = block.offsetLeft;
 		var topInit = block.offsetTop;
-		var leftX = 0, topY = 0;
+		var leftX = 0, topY = 0; 			//对应移动的格数，初始化为0
+		
+		var angle = 0, direction = "t";		//初始化小方块的角度和方向
+
+		// 动作按钮绑定点击事件，通过事件委托获取当前点击的按钮，调用各自函数
+		buttons.addEventListener("click",function(e){
+			switch(e.target.id) {
+				case "go" : move(); break;
+				case "tleft" :turnLeft();break;
+				case "tright" :turnRight();break;
+				case "tback" :turnBack();break;
+			}
+		},false)
+
+		var command = document.getElementById('command');
+		var execute = document.getElementById('execute');
+
+		// 根据输入框不同指令调用不同函数
+		execute.addEventListener("click", function(){
+			switch(command.value.toUpperCase().trim()) {
+				case "GO":move(); break;
+				case "TUN LEF":turnLeft(); break;
+				case "TUN RIG":turnRight(); break;
+				case "TUN BAC":turnBack(); break;
+				default:
+					alert("您输入的指令有误，请重新输入！");
+					command.value = ''; 
+				  break;
+			}
+		} ,false)
+
+		// 定义小方块移动的函数
 		function move() {
 			switch(direction) {
 				case "t" : topY <= 0 ? alert("已经到边缘了，请换个方向！") : topY--; break;
@@ -243,44 +300,42 @@
 			block.style.top = (topInit + topY*30) + 'px';
 		}
 
-		var angle = 0, direction = "t";
-		btns.addEventListener("click",function(e){
-			switch(e.target.id) {
-				case "go" :
-					move()
-					break;
-				case "tleft" :
-					switch(direction) {
-						case "t" : direction = "l"; break;
-						case "r" : direction = "t"; break;
-						case "b" : direction = "r"; break;
-						case "l" : direction = "b"; break;
-					}
-					angle -= 90;
-					block.style.transform = 'rotate('+angle+'deg)';
-					break;
-				case "tright" :
-					switch(direction) {
-						case "t" : direction = "r"; break;
-						case "r" : direction = "b"; break;
-						case "b" : direction = "l"; break;
-						case "l" : direction = "t"; break;
-					}
-					angle += 90;
-					block.style.transform = 'rotate('+angle+'deg)';
-					break;
-				case "tback" :
-					switch(direction) {
-						case "t" : direction = "b"; break;
-						case "r" : direction = "l"; break;
-						case "b" : direction = "t"; break;
-						case "l" : direction = "r"; break;
-					}
-					angle += 180;
-					block.style.transform = 'rotate('+angle+'deg)';
-					break;
+		// 左转函数
+		function turnLeft(){
+			switch(direction) {
+				case "t" : direction = "l"; break;
+				case "r" : direction = "t"; break;
+				case "b" : direction = "r"; break;
+				case "l" : direction = "b"; break;
 			}
-		},false)
+			angle -= 90;
+			block.style.transform = 'rotate('+angle+'deg)';
+		}
+
+		// 右转函数
+		function turnRight(){
+			switch(direction) {
+				case "t" : direction = "r"; break;
+				case "r" : direction = "b"; break;
+				case "b" : direction = "l"; break;
+				case "l" : direction = "t"; break;
+			}
+			angle += 90;
+			block.style.transform = 'rotate('+angle+'deg)';
+		}
+
+		// 掉头函数
+		function turnBack(){
+			switch(direction) {
+				case "t" : direction = "b"; break;
+				case "r" : direction = "l"; break;
+				case "b" : direction = "t"; break;
+				case "l" : direction = "r"; break;
+			}
+			angle += 180;
+			block.style.transform = 'rotate('+angle+'deg)';
+		}
+
 	</script>
 </body>
 </html>
