@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小方块（一）</title>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 16px;
+			background-color: #000;
+		}
+		div.container{
+			width: 500px;
+			background-color: #fff;
+			margin: 50px auto;
+			border-radius: 5px;
+			font-size: 1.2em;
+	    padding: 25px;
+		}
+		#main{
+			position: relative;
+			text-align: center;
+		}
+		table{
+			margin: 0 auto;
+		  border-collapse:collapse;
+		}
+		tr,td{
+			width: 30px;
+			height: 30px;
+			text-align: center;
+		}
+		tbody.body-cell{
+			position: absolute;
+			left: 89px;
+			top: 29px;
+		}
+		div#move-red{
+			width: 29px;
+			height: 29px;
+			background-color: red;
+			position: absolute;
+			left: 90px;
+			top: 30px;
+			transition: all 1s;
+		}
+		span#move-blue{
+			display: block;
+			width: 100%;
+			height: 5px;
+			background-color: blue;
+		}
+		.btns{
+			cursor: pointer;
+			margin: 10px 0;
+			background-color: #2335FC;
+			border: 2px solid #2335FC;
+			width: 50px;
+			border-radius: 5px;
+			color:#fff;
+			margin-left: 10px;
+		}
+		.btns:hover{
+			border-color: #4387F5; 
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="main">
+			<table>
+				<tbody>
+					<tr>
+						<td></td>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+						<td>8</td>
+						<td>9</td>
+						<td>10</td>
+					</tr>
+					<tr><td>1</td></tr>
+					<tr><td>2</td></tr>
+					<tr><td>3</td></tr>
+					<tr><td>4</td></tr>
+					<tr><td>5</td></tr>
+					<tr><td>6</td></tr>
+					<tr><td>7</td></tr>
+					<tr><td>8</td></tr>
+					<tr><td>9</td></tr>
+					<tr><td>10</td></tr>
+				</tbody>
+			</table>
+			<table border="1">
+				<tbody class="body-cell">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="move-red">
+				<span id="move-blue">↑</span>
+			</div>
+			<div id="buttons">
+				<button id="go" class="btns">走</button>
+				<button id="tleft" class="btns">左转</button>
+				<button id="tright" class="btns">右转</button>
+				<button id="tback" class="btns">掉头</button>
+			</div>
+			<div id="tras">
+				<button id="tra-left" class="btns">TRA LEF</button>
+				<button id="tra-top" class="btns">TRA TOP</button>
+				<button id="tra-right" class="btns">TRA RIG</button>
+				<button id="tra-bottom" class="btns">TRA BOT</button>
+			</div>
+			<div id="movs">
+				<button id="mov-left" class="btns">MOV LEF</button>
+				<button id="mov-top" class="btns">MOV TOP</button>
+				<button id="mov-right" class="btns">MOV RIG</button>
+				<button id="mov-bottom" class="btns">MOV BOT</button>
+			</div>
+		</div>
+	</div>
+	<script>
+		var block = document.getElementById('move-red');
+		var buttons = document.getElementById('buttons');
+		var leftInit = block.offsetLeft;
+		var topInit = block.offsetTop;
+		var leftX = 0, topY = 0; 			//对应移动的格数，初始化为0
+		
+		var angle = 0, direction = "t";		//初始化小方块的角度和方向
+
+		// 动作按钮绑定点击事件，通过事件委托获取当前点击的按钮，调用各自函数
+		buttons.addEventListener("click",function(e){
+			switch(e.target.id) {
+				case "go" : move(); break;
+				case "tleft" :turnLeft();break;
+				case "tright" :turnRight();break;
+				case "tback" :turnBack();break;
+			}
+		},false)
+
+		
+		var tras = document.getElementById('tras');
+		tras.addEventListener("click",function(e){
+			switch(e.target.id) {
+				case "tra-left" : leftX <= 0 ? alert("已经到边缘了，请换个方向！") : leftX--; break;
+				case "tra-top" : topY <= 0 ? alert("已经到边缘了，请换个方向！") : topY--; break;
+				case "tra-right" : leftX >= 9 ? alert("已经到边缘了，请换个方向！") : leftX++; break;
+				case "tra-bottom" : topY >= 9 ? alert("已经到边缘了，请换个方向！") : topY++; break;
+			}
+			block.style.left =(leftInit + leftX*30) + 'px';
+			block.style.top = (topInit + topY*30) + 'px';
+		},false)
+
+		var movs = document.getElementById('movs');
+		movs.addEventListener("click",function(e){
+			switch(e.target.id) {
+				case "mov-left" : 
+					block.style.transform = 'rotate(-90deg)';
+					leftX <= 0 ? alert("已经到边缘了，请换个方向！") : leftX--; 
+					break;
+				case "mov-top" : 
+					block.style.transform = 'rotate(0deg)';
+					topY <= 0 ? alert("已经到边缘了，请换个方向！") : topY--; 
+					break;
+				case "mov-right" : 
+					block.style.transform = 'rotate(90deg)';
+					leftX >= 9 ? alert("已经到边缘了，请换个方向！") : leftX++; 
+					break;
+				case "mov-bottom" : 
+					block.style.transform = 'rotate(180deg)';
+					topY >= 9 ? alert("已经到边缘了，请换个方向！") : topY++; 
+					break;
+			}
+			block.style.left =(leftInit + leftX*30) + 'px';
+			block.style.top = (topInit + topY*30) + 'px';
+		},false)
+
+		// 定义小方块移动的函数
+		function move() {
+			switch(direction) {
+				case "t" : topY <= 0 ? alert("已经到边缘了，请换个方向！") : topY--; break;
+				case "r" : leftX >= 9 ? alert("已经到边缘了，请换个方向！") : leftX++; break;
+				case "b" : topY >= 9 ? alert("已经到边缘了，请换个方向！") : topY++; break;
+				case "l" : leftX <= 0 ? alert("已经到边缘了，请换个方向！") : leftX--; break;
+			}
+			block.style.left =(leftInit + leftX*30) + 'px';
+			block.style.top = (topInit + topY*30) + 'px';
+		}
+
+		// 左转函数
+		function turnLeft(){
+			switch(direction) {
+				case "t" : direction = "l"; break;
+				case "r" : direction = "t"; break;
+				case "b" : direction = "r"; break;
+				case "l" : direction = "b"; break;
+			}
+			angle -= 90;
+			block.style.transform = 'rotate('+angle+'deg)';
+		}
+
+		// 右转函数
+		function turnRight(){
+			switch(direction) {
+				case "t" : direction = "r"; break;
+				case "r" : direction = "b"; break;
+				case "b" : direction = "l"; break;
+				case "l" : direction = "t"; break;
+			}
+			angle += 90;
+			block.style.transform = 'rotate('+angle+'deg)';
+		}
+
+		// 掉头函数
+		function turnBack(){
+			switch(direction) {
+				case "t" : direction = "b"; break;
+				case "r" : direction = "l"; break;
+				case "b" : direction = "t"; break;
+				case "l" : direction = "r"; break;
+			}
+			angle += 180;
+			block.style.transform = 'rotate('+angle+'deg)';
+		}
+
+	</script>
+</body>
+</html>
