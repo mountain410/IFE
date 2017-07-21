@@ -8,17 +8,46 @@
 <body>
 	<main id="main">
 		<button id="try">有种点我试试！</button>
+		<button id="disable-scroll">目前弹出后禁用滚动，点击后开启</button>
+		<button id="try2">点击我可以设置宽高</button>
+
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
+		<section class="place">这是为了测试浮层弹出的浏览器滚动</section>
 	</main>
 	<div id="mask">
-		<div id="out">
-			<div id="out-top">这是个浮层</div>
-			有种拽我试试！
-			<div id="out-btns">
-				<button id="conf">确定</button>
-				<button id="canc">取消</button>
+		<article id="popup" class="pop">
+			<h1 id="popup-top" class="pop-head">这是个浮层</h1>
+			<p>有种拽我试试！</p>
+			<div id="popup-btns" class="pop-btns">
+				<button id="pop1-conf">确定</button>
+				<button id="pop1-canc">取消</button>
 			</div>
-		</div>
+		</article>
+		<article id="popup2" class="pop">
+			<form action="">
+				<h1 id="popup2-top" class="pop-head">这也是个浮层</h1>
+				<p>再拽我试试！动一下算我输！给你个机会改变大小吧！</p>
+				<div id="pop2-input">
+					<label>Width: <input id="pop-w" type="number" step="10" min="300" max="800" required/></label>
+					<label>Height: <input id="pop-h" type="number" step="10" min="300" max="800" required/></label>
+				</div>
+				<div id="popup2-btns" class="pop-btns">
+					<button id="pop2-change">确定并更改宽高</button>
+					<button id="pop2-conf">确定</button>
+					<button id="pop2-canc">取消</button>
+				</div>
+			</form>
+		</article>
 	</div>
+	
 	<script src="scripts/task6.js" ></script>
 </body>
 </html>

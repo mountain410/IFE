@@ -22,27 +22,37 @@ button{
 	bottom: 0;
 	background-color: rgba(122,122,122,0.5);
 }
-#out{
+.pop{
 	width: 500px;
 	height: 300px;
 	border: 1px solid black;
 	display: none;
 	position: absolute;
-	top: 50%;
+	/*这里用js动态做*/
+	/*top: 50%;
 	left: 50%;
 	margin-left: -250px;
-	margin-top: -150px;
+	margin-top: -150px;*/
 	font-size: 1.2em;
 	background-color: #fff;
 }
-#out-btns{
-	position: absolute;
-	bottom: 0px;
-	right: 15px;
-}
-#out-top{
+.pop-head{
+	margin: 0;
 	height: 50px;
 	line-height: 50px;
 	background-color: #898383;
 	color: #EAE2E2;
+	font-size: 1.4em;
+}
+.pop-btns{
+	position: absolute;
+	bottom: 0px;
+	right: 15px;
+}
+
+.place{
+	padding: 50px;
+	margin:20px;
+	background-color: #B3A3E4;
+	color: #fff;
 }
