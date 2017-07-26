@@ -17,24 +17,21 @@ button{
 }
 #mask{
 	display: none;
-	position: fixed;
+	background-color: rgba(122,122,122,0.5);
+	/*下面在引用task6-1时设为有效*/
+	/*position: fixed;
 	left: 0;
 	top: 0;
 	right: 0;
-	bottom: 0;
-	background-color: rgba(122,122,122,0.5);
+	bottom: 0;*/
 }
 .pop{
 	width: 500px;
 	height: 300px;
 	border: 1px solid black;
 	display: none;
-	position: absolute;
-	/*这里用js动态做*/
-	/*top: 50%;
-	left: 50%;
-	margin-left: -250px;
-	margin-top: -150px;*/
+	/*下面一句引用task6-1时设为有效*/
+	/*position: absolute;*/
 	font-size: 1.2em;
 	background-color: #fff;
 }
