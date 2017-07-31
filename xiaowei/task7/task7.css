@@ -1,0 +1,641 @@
+*{
+	margin:0;
+	padding:0;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color:#ccc;
+}
+a{
+	text-decoration: none;
+	cursor:pointer;		/*光标改变*/
+}
+ul li{
+	list-style: none;
+}
+header{
+	min-width: 1280px;
+	height: 58px;
+	width: 100%;
+	background-color: #fff;
+}
+.newWorld{
+	float: left;
+	margin:12px 0px 12px 60px;
+	width: 104px;
+}
+.newWorld img{
+	display: block;
+	float: left;
+}
+.newWorld span{
+	float: left;
+	font-size: 21px;
+	color:#393a3a;
+	margin-left: 10px;
+}
+.headerR{
+	float: right;
+	width: 540px;
+	margin-right: 68px;
+}
+nav{
+	float: left;
+	padding-top:18px; /*为什么不能用margin*/
+	padding-bottom: 21px;
+}
+nav a{
+	margin-right: 44px;
+	padding-bottom: 15px;
+	font-weight: bold;
+	transition:border-bottom 0.5s ;
+}
+nav a:hover{
+	color: #e74f4d;
+	border-bottom: 5px solid #e74f4d;
+}
+.login{
+	float: left;
+	margin-top: 18px;
+}
+.loginTxt{
+	color: #e74f4d;
+	font-weight: bold;
+	cursor:pointer;
+}
+.one{
+	background: url("./images/promo.jpg") no-repeat;
+	position: relative;
+	width: 100%;
+	min-width: 1280px;		/*不指定最小宽度的话absolute会固定*/
+	height: 688px;
+	background-size: 100% auto;	/*Firefox浏览器下控制背景图片大小。*/
+	opacity: 0.95;
+}
+.one .txt_1{
+	position: absolute;
+	left:116px;
+	top:228px;
+	font-size: 60px;
+	color: #fff;
+}
+.one .txt_2{
+	position: absolute;
+	left:116px;
+	top:308px;
+	font-size: 21px;
+	color: #fff;
+}
+.startBtn{
+	position: absolute;
+	left: 116px;
+	top: 424px;
+	height: 66px;
+	width: 333px;
+	background-color: #e74f4d;
+	font-size: 30px;
+	color: #fff;
+	text-align: center;
+	line-height: 66px;
+	cursor: pointer;
+}
+.two{
+	height: 250px;
+	width: 100%;
+	min-width: 1280px;
+	background-color: #fff;
+}
+.note{
+	float: left;
+	width: 25%;
+	height: 250px;
+}
+.notePhoto{
+	margin:46px 136px 46px 148px;
+}
+.note p{
+	font-weight: bold;
+	margin-left: 50px;
+	margin-right: 80px;
+	text-align: center;
+}
+.wrap{
+	height: 54px;	/*宽度自动继承父元素宽度？*/
+	border-right: 2px solid #ccc;
+}
+.three{
+	position: relative;
+	height: 360px;
+	width: 100%;
+	min-width: 1280px;
+	background-color: #ededed;
+}
+.three img{
+	position: absolute;
+	top:88px;
+	left: 50%; 
+	margin-left: -45px;
+}
+.three p{
+	position: absolute;
+	top:228px;
+	left: 50%;
+	margin-left: -419px;
+	font-size: 54px;
+}
+.four{
+	position: relative;
+	width: 100%;
+	min-width: 1280px;
+	height: 342px;
+	background: url("./images/map.jpg") no-repeat;
+	background-size: 100% auto;
+}
+.four .txt_1{
+	position: absolute;
+	color: #fff;
+	font-size: 21px;
+	top:52px;
+	left: 50%;
+	margin-left: -95px;
+}
+.underline{
+	position: absolute;
+	width: 34px;
+	height: 2px;
+	background-color: #fff;
+	top:82px;
+	left: 50%;
+	margin-left: -17px;
+}
+.four .txt_2{
+	position: absolute;
+	color: #fff;
+	font-size: 12px;
+	top:104px;
+	left: 50%;
+	margin-left: -168px;
+}
+.lookFor{
+	position: absolute;
+	left: 50%;
+	top:172px;
+	margin-left: -515px;
+	width: 1058px;
+	height: 36px;
+}
+.lookFor div{
+	float: left;
+	height: 36px;
+	width: 236px;
+	margin-right: 36px;
+	font-size: 12px;
+	border: 1px solid #bf4f49;
+	background: url("./images/select.jpg") no-repeat 98% #fff;
+}
+.des{
+	display: block;
+	text-indent: 5%;
+	line-height: 36px;
+}
+.select{
+	position: relative;
+	line-height: 26px;
+	text-indent: 15%;
+	border: 1px solid #bf4f49;
+	background-color: #e3e3e4;
+	z-index: 10;	/*z-indexz只应用于定位元素*/
+}
+.selectItems:hover{
+	cursor: pointer;
+	background: url("./images/tick.png") no-repeat 5% #bf4f49;
+}
+.search{
+	float:left;
+	height: 36px;
+	width: 236px;
+	appearance:none;	/*清除下拉列表select的默认样式*/
+	-moz-appearence:none;	/*-moz:火狐浏览器私有属性*/
+	-webkit-appearance:none;	/*-webkit:谷歌、safari浏览器私有属性*/
+	background-color: #bf4f49;
+	color: #fff;
+	border:0 solid;
+}
+.search:hover{
+	cursor:pointer;
+}
+.five{
+	position: relative;
+	width: 100%;
+	height: 604px;
+	min-width: 1280px;
+	background-color: #f7f7f7;
+}
+div[class^="package"]{
+	position: absolute;
+	top:100px;
+	height: 390px;
+	width: 220px;
+	margin-left: -110px;
+	background-color: #f7f7f7;
+}
+.five div[class$="One"]{
+	left: 20%;
+	text-align: center;
+}
+.five div[class$="Two"]{
+	left: 40%;
+	text-align: center;
+}
+.five div[class$="Three"]{
+	left: 60%;
+	text-align: center;
+}
+.five div[class$="Four"]{
+	left: 80%;
+	text-align: center;
+}
+div[class^="smallWrap"]{
+	height: 334px;
+	width: 220px;
+	background-color: #fff;
+}
+.five div[class$="1"]{
+	background: url("./images/pic_1.jpg") center no-repeat #fff;
+}
+.five div[class$="2"]{
+	background: url("./images/pic_2.jpg") center no-repeat #fff;
+}
+.five div[class$="3"]{
+	background: url("./images/pic_3.jpg") center no-repeat #fff;
+}
+.five div[class$="4"]{
+	background: url("./images/pic_4.jpg") center no-repeat #fff;
+}
+.commonTxt{
+	font-weight: bold;
+	color: #636464;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.specialTxt{
+	font-size: 20px;
+	font-weight: bold;
+	color: #636464;
+	letter-spacing: 20px;
+}
+.six{
+	height: 567px;
+	width: 100%;
+	min-width: 1280px;
+	background-color: #fff;
+}
+.sixL{
+	float: left;
+	position: relative;
+	width: 70%;
+	height: 567px;
+	background: url("./images/men.jpg");
+	background-size: 100% auto;
+}
+.sixL p[class^="txt"]{
+	color: #fff;
+	position: absolute;
+	left: 50%;
+}
+.sixL p[class$="1"]{
+	font-size: 50px;
+	top:132px;
+	margin-left:-75px; 
+}
+.sixL p[class$="2"]{
+	font-size: 158px;
+	top:190px;
+	margin-left: -189px;
+}
+.sixL p[class$="3"]{
+	font-size: 22px;
+	top:370px;
+	margin-left: -73px;
+}
+.sixL p[class$="4"]{
+	font-size: 22px;
+	top:412px;
+	margin-left: -57px;
+}
+.triangle{
+	position: absolute;
+	display:inline-block;
+	border-top:14px solid transparent;
+	border-right:28px solid #fff;
+	border-bottom: 14px solid transparent;
+	right: 0;
+	top:50%;
+}
+.sixR{
+	float: left;
+	position: relative;
+	width: 30%;
+	height: 567px;
+}
+.txt_5{
+	position: absolute;
+	font-size: 18px;
+	font-weight: bold;
+	color: #323333;
+	letter-spacing: 3px;
+	top:164px;
+	left:50%;
+	margin-left: -52px;
+}
+.txt_5 span{
+	font-size: 18px;
+	color: #ea6563;
+}
+.sixR p{
+	position: absolute;
+	line-height: 38px;
+	top:210px;
+	left:50%;
+	margin-left: -168px;
+}
+.more{
+	position: absolute;
+	height: 34px;
+	width: 104px;
+	border:2px solid #e74f4d;
+	color: #e74f4d;
+	text-align: center;
+	line-height: 34px;
+	top:390px;
+	left:50%;
+	margin-left: -53px;
+}
+.more:hover{
+	cursor: pointer;
+	color: #fff;
+	background-color:#e74f4d; 
+}
+.circles{
+	position: absolute;
+	top:450px;
+	left:50%;
+	margin-left:-30px; 
+}
+div[class^="circle_"]{
+	float: left;
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	border: 2px solid #ccc;
+	background-color: #fff;
+	margin-right: 10px;
+}
+div[class^="circle_"]:hover{
+	background-color: #ccc;
+	cursor:pointer;
+}
+.seven{
+	height: 520px;
+	width: 100%;
+	min-width: 1280px;
+}
+.left{
+	float: left;
+	position: relative;
+	height: 520px;
+	width: 35%;
+	background-color: #e74f4d;
+}
+.middle{
+	float: left;
+	position: relative;
+	height: 520px;
+	width: 35%;
+	background-color: #fff;
+}
+.right{
+	float: left;
+	position: relative;
+	height: 520px;
+	width: 30%;
+	background:url("./images/woman.jpg") no-repeat;
+	background-size: 100% 520px; /*将高度从auto变为具体数值，解决了浏览器宽度缩小而使得背景图高度也缩小的问题。*/
+}
+.seven p[class^="txt_"]{
+	position: absolute;
+	top:174px;
+	left:50%;
+	margin-left: -72px;
+	font-size: 18px;
+	text-align: center;
+}
+.seven div[class^="underline_"]{
+	position: absolute;
+	top:248px;
+	left:50%;
+	margin-left: -17px;
+	height: 2px;
+	width: 34px;
+}
+.seven div[class^="seeMore"]{
+	position: absolute;
+	top:276px;
+	left:50%;
+	margin-left: -64px;
+	width: 128px;
+	height: 44px;
+	border:1px solid;
+	text-align: center;
+	line-height: 44px;
+}
+.seven .txt_1{
+	color: #fff;
+}
+.underline_1{
+	background-color: #fff;
+}
+.seeMore_1{
+	color: #fff;
+}
+.seeMore_1:hover{
+	cursor:pointer;
+	color: #e74f4d;
+	background-color: #fff;
+}
+.seven .txt_2{
+	color: #323333;
+}
+.underline_2{
+	background-color: #abaaaa;
+}
+.seeMore_2{
+	color: #e74f4d;
+}
+.seeMore_2:hover{
+	cursor:pointer;
+	color: #fff;
+	background-color: #e74f4d;
+}
+.tirangle_1{
+	position: absolute;
+	top:50%;
+	left:0;
+	border-left: 36px solid #fff;
+	border-top:18px solid transparent;
+	border-bottom:18px solid transparent;
+}
+.eight{
+	height: 750px;
+	width: 100%;
+	min-width: 1280px; 
+	background-color: #fff;
+}
+.top{
+	height: 300px;
+	width: 100%;
+	min-width: 1280px;
+}
+.top :first-child{
+	font-size: 21px;
+	color: #6d6e6e;
+	text-align: center;
+	padding-top: 116px;
+	padding-bottom: 10px;
+}
+.underlineAgain{
+	height: 20px;
+	width: 34px;
+	margin:0 auto;
+	border-top:2px solid #e74f4d;
+	transition:width 0.3s;
+}
+.underlineAgain:hover{
+	width: 200px;
+}
+.top :last-child{
+	font-size:12px;
+	color:#aaaaaa;
+	text-align: center;
+}
+.bottom{
+	width: 100%;
+	height: 280px;
+	min-width: 1280px; /*将父元素宽度设置为恰好包含内部子元素所有内容的宽度，解决float:left下沉问题。*/
+}
+.bottomL{
+	float: left;
+	margin-left: 160px;
+	margin-right: 76px;
+	width:298px;
+	height:280px;
+}
+.agreement{
+	color:#979594;
+	text-align: left;
+	margin-bottom: 26px;
+}
+.agreementDetail{
+	font-size: 12px;
+	text-align: left;
+}
+.moreDetail{
+	text-align: right;
+	cursor:pointer;
+}
+.moreDetail:hover{
+	color:#000;
+}
+.bottomR{
+	float: left;
+	width: 666px;
+}
+.bottomR input[type="text"],textarea{
+	height: 38px;
+	width: 310px;
+	background-color: #ededef;
+	border:none;
+	text-indent: 1em;
+	margin-bottom: 14px;
+	margin-right: 20px;
+	color: #6c6564;
+}
+.bottomR textarea{
+	width: 640px;
+	height: 120px;
+	resize:none;
+}
+.bottomR input:nth-of-type(5){
+	height: 38px;
+	width: 640px;
+	background-color: #ededef;
+	border:none;
+	text-align: center;
+	font-weight: bold;
+	color: #323333;
+}
+.nine{
+	height: 360px;
+	width: 100%;
+	min-width: 1280px;
+	background-color: #32353e;
+}
+.nine p:nth-of-type(1){
+	font-size: 21px;
+	text-align: center;
+	color: #fff;
+	padding-top: 92px;
+}
+.nine p:nth-of-type(2){
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 30px;
+	padding-top: 12px;
+}
+.email{
+	text-align: center;
+	padding-bottom: 36px;
+}
+.nine input{
+	height:40px;
+	width: 430px;
+	text-indent: 1em;
+	color:#aaaaaa;
+	border:none;
+}
+button{
+	height: 40px;
+	width: 82px;
+	background-color: #6f7278;
+	color: #fff;
+	border: none;
+	cursor:pointer;
+	text-align: center;
+}
+.icon{
+	text-align: center;
+}
+.icon li{
+	display: inline-block;
+	margin-right: 24px;
+}
+footer{
+	position: relative;
+	height: 58px;
+	width: 100%;
+	min-width: 1280px;
+	background-color: #2f3039;
+}
+footer span{
+	position: absolute;
+	font-size: 12px;
+	line-height: 58px;
+	color: #fff;
+}
+footer span:nth-of-type(1){
+	left:3%;
+}
+footer span:nth-of-type(2){
+	right:3%;
+	cursor: pointer;
+}
