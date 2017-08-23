@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Task7-2</title>
+    <style>
+        * { margin: 0;padding: 0;}
+        .blue { background-color: blue;}
+        #tree{width: 900px; height: 150px;margin: 100px auto}
+        div{display: flex;flex-grow: 1;border: 2px solid #000;padding: 16px;box-sizing: border-box;background-color: #fff;text-align: right;}
+        div>div { height: 124px;margin-right: 5px;}
+        div>div>div {height: 90px;}
+        div>div>div>div {height: 54px;}
+        p{text-align: center;}
+        p>button{width: 70px;height: 26px ;line-height: 26px;margin-right:60px;border-radius: 5px;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div id="tree">
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <p>
+        <button id="pre">前序</button>
+        <button id="cen">中序</button>
+        <button id="aft">后序</button>
+    </p>
+    <script>
+        /*****************定义选择器*****************/
+        function $(id) {
+            return document.querySelector(id);
+        }
+        //定义了一个数组用来盛放排好序的子元素，来进行循环变色
+        var childLists = [];
+        //定义一个定时器
+        var timer = null;
+        //点击事件
+        $("#pre").onclick = function() {
+            restColor()
+            preOrder($("#tree"));
+            changeColor();
+        }
+        $("#cen").onclick = function() {
+            restColor()
+            inOrder($("#tree"));
+            changeColor();
+        }
+        $("#aft").onclick = function() {
+            restColor()
+            pastOrder($("#tree"));
+            changeColor();
+        }
+
+        /**************初始化**************/
+        function restColor() {
+            clearInterval(timer); //清除定时器
+            for (var j = 0; j < childLists.length; j++) {
+                childLists[j].removeAttribute("class")
+            }
+            childLists = []; //清空数组
+
+        }
+        /*****************使用递归方式实现先序遍历*****************/
+        function preOrder(node) {
+            if (node) {
+                childLists.push(node);
+                preOrder(node.firstElementChild || node.firstChild);
+                preOrder(node.lastElementChild || node.lastChild);
+            }
+        }
+        /*****************使用递归方式实现中序遍历*****************/
+        function inOrder(node) {
+            if (node) {
+                inOrder(node.firstElementChild || node.firstChild); //先访问左子树
+                childLists.push(node);
+                inOrder(node.lastElementChild || node.lastChild); //最后访问右子树
+            }
+        }
+        /******************使用递归方式实现后序遍历************************/
+        function pastOrder(node) {
+            if (node) {
+                pastOrder(node.firstElementChild || node.firstChild);
+                pastOrder(node.lastElementChild || node.lastChild);
+                childLists.push(node);
+            }
+        }
+        /***************************改变颜色***************************/
+        function changeColor() {
+            var i = 0;
+            timer = setInterval(function() {
+                if (i < childLists.length) {
+                    if (i > 0) {
+                        childLists[i - 1].removeAttribute("class")
+                    }
+                    childLists[i].setAttribute("class", "blue")
+                    i++;
+                } else {
+                    clearInterval(timer);
+                    childLists[i - 1].removeAttribute("class")
+                }
+            }, 500)
+        }
+    </script>
+</body>
+
+</html>
