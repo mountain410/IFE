@@ -20,7 +20,7 @@ div{
 }
 .left{
 	width: 200px;
-	margin-left: -100%;  /*注意！！！ 这个百分数是相对于父元素的*/
+	margin-left: -100%;  /*注意！！！ 这个百分数是相对于父元素的width*/
 	box-sizing: border-box;
 	padding: 20px;
 }

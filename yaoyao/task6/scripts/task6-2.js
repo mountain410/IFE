@@ -2,11 +2,13 @@
 var task6 = {};
 
 var main = function(){
+  // 私有方法
   function $(elem_id){
     if (elem_id.indexOf('#') === 0){
       return document.getElementById(elem_id.substring(1))
     }
   }
+  // 下面都是私有变量
   var popup =  $("#popup");
   var popup2 = $("#popup2");
   var mask = $('#mask');
