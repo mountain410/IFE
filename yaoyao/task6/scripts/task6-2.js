@@ -1,99 +1,6 @@
-var task6 = {};
-
-var main = function(){
-  // 私有方法
-  //定义一个id选择器方法
-  function $(elem_id){
-    if (elem_id.indexOf('#') === 0){
-      return document.getElementById(elem_id.substring(1))
-    }
-  }
-  // 下面都是私有变量
-  var popup =  $("#popup");
-      popup2 = $("#popup2"),
-      mask = $('#mask'),
-      title = $("#popup-top"),
-      scrollable = false,
-      minHeight = 150,
-      minWidth = 200;
-
-  /*
-   *初始化函数，给目标设置浮出层，可拖动，可缩放，以及相应鼠标事件
-   *param none
-   *return undefined
-   */
-  function initial(){
-    task6.setPopup(popup,mask);
-    task6.setPopup(popup2,mask);
-    task6.setDragable(popup,title);
-    task6.setResizable(popup,minHeight,minWidth)
-    
-    // 通过全局事件委托，绑定点击事件
-    document.addEventListener("click",function(e){
-      switch(e.target.id) {
-        // 点击第一个浮层按钮，显示浮层1
-        case "try" :
-          task6.popShow(popup,mask,scrollable);
-          break;
-        // 点击第二个浮层按钮，显示浮层2
-        case "try2" :
-          task6.popShow(popup2,mask,scrollable);
-          break;
-        // 当点击蒙层、确定和取消按钮时，关闭浮层
-        case "mask" :
-        case "pop1-conf" :
-        case "pop1-canc" :
-        case "pop2-canc" :
-        case "pop2-conf" :
-          task6.popHidden(popup,mask);
-          task6.popHidden(popup2,mask);
-          break;
-
-        // 第二个浮层里面的改变宽高的按钮
-        case "pop2-change" :
-          var popWidth = $("#pop-w").value;
-          var popHeight = $("#pop-h").value;
-          if (popWidth >= 300 && popWidth<=800 && popHeight>=300 && popHeight<=600) {
-            // 获取输入框的值，更改浮层的宽高
-            popup2.style.width = popWidth + "px";
-            popup2.style.height = popWidth + "px";
-
-            // 这两句是为了让浮层在浏览器窗口居中显示
-            popup2.style.top = (window.innerHeight - popup2.offsetHeight) / 2 + "px";
-            popup2.style.left = (window.innerWidth - popup2.offsetWidth) / 2 + "px";
-          }
-          break;
-      }
-    },false)
-  }
-
-  //禁用鼠标滚轮的按钮绑定点击事件
-  $("#disable-scroll").addEventListener("click",function(e){
-    scrollable = !scrollable;
-    var txtScroll = scrollable === true ? "现在弹出后可以滚动，点击后禁用" : "现在弹出后禁用滚动，点击后开启";
-    e.target.innerHTML = txtScroll;
-  })
-
-  // 取消表单默认提交事件
-  $("#popup2").addEventListener("submit",function(e){
-    e.preventDefault();
-  },false)
-
-  return {
-    initial : initial
-  };
-}();
-
-
 /********模块功能封装*******/
 
-(function(interface){
-  
-  interface.setPopup = setPopup;
-  interface.setDragable = setDragable;
-  interface.setResizable = setResizable;
-  interface.popShow = popShow;
-  interface.popHidden = popHidden;
+var task6 = (function(){
 
   /*
    *给元素添加浮出层的功能
@@ -142,7 +49,7 @@ var main = function(){
    *                         可无 取默认值 false禁用
    *return undefined
    */
-  function popHidden(popup,mask,) {
+  function popHidden(popup,mask) {
     popup.style.display = "none";
     mask.style.display = "none";
     document.removeEventListener("wheel",preventScroll)
@@ -238,6 +145,7 @@ var main = function(){
     var colText = "position: absolute; margin: 0; height: 5px; border: none; ",
         rowText = "position: absolute; margin: 0; width: 5px; border: none;",
         angleText = "position: absolute; margin: 0; height: 5px; width: 5px; border: none;";
+    
     top.style.cssText = posTop + posLeft + posRight + colText +"cursor: n-resize;";
     right.style.cssText = posTop + posRight + posBottom + rowText + "cursor: e-resize;";
     bottom.style.cssText = posBottom + posLeft + posRight + colText + "cursor: s-resize;";
@@ -361,7 +269,95 @@ var main = function(){
       document.removeEventListener("mouseup", mouseup);
     }
   }
+  return {
+    setPopup: setPopup,
+    setDragable: setDragable,
+    setResizable: setResizable,
+    popShow: popShow,
+    popHidden: popHidden
+  }
 
-})(task6);
+})();
+
+var main = function(){
+  //定义一个id选择器方法
+  function $(elem_id){
+    if (elem_id.indexOf('#') === 0){
+      return document.getElementById(elem_id.substring(1))
+    }
+  }
+  var popup =  $("#popup"),
+      popup2 = $("#popup2"),
+      mask = $('#mask'),
+      title = $("#popup-top"),
+      scrollable = false,
+      minHeight = 150,
+      minWidth = 200;
+  /*
+   *初始化函数，给目标设置浮出层，可拖动，可缩放，以及相应鼠标事件
+   *param none
+   *return undefined
+   */
+  function initial(){
+    task6.setPopup(popup,mask);
+    task6.setPopup(popup2,mask);
+    task6.setDragable(popup,title);
+    task6.setResizable(popup,minHeight,minWidth);
+    
+    // 通过全局事件委托，绑定点击事件
+    document.addEventListener("click",function(e){
+      switch(e.target.id) {
+        // 点击第一个浮层按钮，显示浮层1
+        case "try" :
+          task6.popShow(popup,mask,scrollable);
+          break;
+        // 点击第二个浮层按钮，显示浮层2
+        case "try2" :
+          task6.popShow(popup2,mask,scrollable);
+          break;
+        // 当点击蒙层、确定和取消按钮时，关闭浮层
+        case "mask" :
+        case "pop1-conf" :
+        case "pop1-canc" :
+        case "pop2-canc" :
+        case "pop2-conf" :
+          task6.popHidden(popup,mask);
+          task6.popHidden(popup2,mask);
+          break;
+
+        // 第二个浮层里面的改变宽高的按钮
+        case "pop2-change" :
+          var popWidth = $("#pop-w").value;
+          var popHeight = $("#pop-h").value;
+          if (popWidth >= 300 && popWidth<=800 && popHeight>=300 && popHeight<=600) {
+            // 获取输入框的值，更改浮层的宽高
+            popup2.style.width = popWidth + "px";
+            popup2.style.height = popWidth + "px";
+
+            // 这两句是为了让浮层在浏览器窗口居中显示
+            popup2.style.top = (window.innerHeight - popup2.offsetHeight) / 2 + "px";
+            popup2.style.left = (window.innerWidth - popup2.offsetWidth) / 2 + "px";
+          }
+          break;
+      }
+    },false)
+  }
+
+  //禁用鼠标滚轮的按钮绑定点击事件
+  $("#disable-scroll").addEventListener("click",function(e){
+    scrollable = !scrollable;
+    var txtScroll = scrollable === true ? "现在弹出后可以滚动，点击后禁用" : "现在弹出后禁用滚动，点击后开启";
+    e.target.innerHTML = txtScroll;
+  })
+
+  // 取消表单默认提交事件
+  $("#popup2").addEventListener("submit",function(e){
+    e.preventDefault();
+  },false)
+
+  return {
+    initial : initial
+  };
+}();
 
 main.initial();

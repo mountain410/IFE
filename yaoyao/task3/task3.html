@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>task1</title>
+	<title>task3</title>
 	<style>
 		*{
 			box-sizing: border-box;
@@ -76,7 +76,7 @@
 			<div class="detail">
 				<div id="sel">
 					<label for="campus">学校</label>
-					<select name="cities" id="city" onChange="selCity(this.options[this.selectedIndex].value)">
+					<select name="cities" id="city" >
 						<option value="all">-请选择-</option>
 						<option value="bj">北京</option>
 						<option value="sh">上海</option>
@@ -84,7 +84,7 @@
 						<option value="js">江苏</option>
 						<option value="other">其他</option>
 					</select>
-					<select name="schools" id="school" onChange="selSchool(this.options[this.selectedIndex].text)">
+					<select name="schools" id="school" >
 						<option value="none">-请选择-</option>
 					</select>
 					<input type="text" id="oth-school" />
@@ -108,8 +108,18 @@
 		var noStudent = document.getElementById('noStudent');
 		var sel = document.getElementById('sel');
 		var inp = document.getElementById('inp');
+		var city = document.getElementById('city');
+		var school = document.getElementById('school');
 
-		// 点击单选按钮触发
+		city.onchange = function() {
+			selCity(this.options[this.selectedIndex].value)
+		}
+
+		school.onchange = function() {
+			selSchool(this.options[this.selectedIndex].text)
+		}
+
+		// 单选在校生和非在校生
 		choose.onclick = function(){
 			if (student.checked == true) {
 				sel.style.display = "inline-block";
@@ -123,36 +133,36 @@
 
 		// 在校生选择城市时函数
 		function selCity(value){
-			var schOption = document.getElementById('school');
+			var school = document.getElementById('school');
 			othSchool.style.display = "none";
 			othSchool.value = ''
-			schOption.innerHTML = '';
+			school.innerHTML = '';
 			switch(value) {
 				case 'bj':
 					bj.map(function(item,index){
-						schOption.options[school.length] = new Option(item,'sch-' + index);
+						school.options[school.length] = new Option(item,'sch-' + index);
 					})
 					break;
 				case 'sh':
 					sh.map(function(item,index){
-						schOption.options[school.length] = new Option(item,'sch-' + index);
+						school.options[school.length] = new Option(item,'sch-' + index);
 					})
 					break;
 				case 'zj':
 					zj.map(function(item,index){
-						schOption.options[school.length] = new Option(item,'sch-' + index);
+						school.options[school.length] = new Option(item,'sch-' + index);
 					})
 					break;
 				case 'js':
 					js.map(function(item,index){
-						schOption.options[school.length] = new Option(item,'sch-' + index);
+						school.options[school.length] = new Option(item,'sch-' + index);
 					})
 					break;
 				case 'all':
-					schOption.options[0] = new Option("-请选择-","none");
+					school.options[0] = new Option("-请选择-","none");
 					break;
 				case 'other':
-					schOption.options[0] = new Option("其他","others");
+					school.options[0] = new Option("其他","others");
 					othSchool.style.display = "inline-block";
 					break;
 			}

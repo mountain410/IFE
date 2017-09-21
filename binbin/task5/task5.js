@@ -65,18 +65,22 @@ var insert = document.getElementById('btn-insertion');
 var select = document.getElementById('btn-selection');
 
 bubble.onclick = function(){
+	reset();
 	viewSort(bubbleSort,bubbleData);
 }
 insert.onclick = function(){
+	reset();
 	viewSort(insertionSort,insertData);
 }
 select.onclick = function(){
+	reset();
 	viewSort(selectionSort,selectionData);
 }
 
 //重置按钮
-var reset = document.getElementById('btn-reset');
-reset.onclick = function(){
+var resetBtn = document.getElementById('btn-reset');
+resetBtn.onclick = reset();
+function reset(){
 	if (timer) {
 		clearInterval(timer)
 	}

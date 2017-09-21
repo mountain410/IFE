@@ -28,7 +28,8 @@ button{
 .pop{
 	width: 500px;
 	height: 300px;
-	border: 1px solid black;
+	border: 1px solid gray;
+	border-radius: 5px;
 	display: none;
 	/*下面一句引用task6-1时设为有效*/
 	/*position: absolute;*/

@@ -118,7 +118,7 @@
 	}
 	//邮箱验证
 	function mailCheck(input){
-		var pattern = /^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/
+		var pattern = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,5}$/
 		if(input == ''){
 			mail.style.border = "2px solid red";
 			spans[3].innerHTML = "邮箱不能为空！";
